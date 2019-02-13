@@ -1,3 +1,5 @@
 package jwt.auth.ktor.models
 
-class UserModel(val id: String, val name: String)
+import io.ktor.auth.Principal
+
+class UserModel(val id: String, val name: String) : Principal
