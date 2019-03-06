@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './App.scss';
 
 interface State {
@@ -15,7 +16,9 @@ class App extends Component {
   onValueChange = (key: string, value: string) => this.setState({[key]: value});
 
   startAuth = async () => {
-    
+    const {login, password} = this.state;
+    const token = await axios.post('api/auth', {login, password});
+    console.log(token);
   };
 
   render() {
