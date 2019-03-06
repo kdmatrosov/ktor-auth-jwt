@@ -17,8 +17,12 @@ class App extends Component {
 
   startAuth = async () => {
     const {login, password} = this.state;
-    const token = await axios.post('api/auth', {login, password});
-    console.log(token);
+    try {
+      const {data: token} = await axios.post('api/auth', {login, password});
+      console.log(token);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   render() {
