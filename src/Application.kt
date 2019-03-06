@@ -14,7 +14,6 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.request.path
-import io.ktor.request.uri
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.post
@@ -60,10 +59,11 @@ fun Application.module(testing: Boolean = false) {
     }
 
     routing {
-        post("auth"){
+        post("auth") {
             //TODO read post, get user from DB
 
             //TODO return token
+            call.respondText("token", contentType = ContentType.Text.Plain)
         }
 
         //TODO remove this
@@ -73,7 +73,7 @@ fun Application.module(testing: Boolean = false) {
                 contentType = ContentType.Text.Plain
             )
         }
-        
+
         authenticate {
             get("data") {
                 call.respondText("it's a secret")
