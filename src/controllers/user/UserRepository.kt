@@ -1,6 +1,6 @@
-package jwt.auth.ktor.repositories
+package controllers.user
 
-import jwt.auth.ktor.models.UserModel
+import jwt.auth.ktor.repositories.Repository
 
 object UserRepository : Repository {
     fun getUserById(id: String): UserModel {

@@ -1,4 +1,4 @@
-package jwt.auth.ktor.models
+package controllers.user
 
 import io.ktor.auth.Principal
 

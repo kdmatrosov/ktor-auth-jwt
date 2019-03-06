@@ -3,7 +3,7 @@ package jwt.auth.ktor.services
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
-import jwt.auth.ktor.models.UserModel
+import controllers.user.UserModel
 import java.util.*
 
 object JwtService {

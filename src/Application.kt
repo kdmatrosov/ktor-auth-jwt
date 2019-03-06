@@ -14,12 +14,14 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.request.path
+import io.ktor.request.receive
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.routing
-import jwt.auth.ktor.models.UserModel
-import jwt.auth.ktor.repositories.UserRepository
+import controllers.user.UserModel
+import jwt.auth.ktor.payloads.AuthPayload
+import controllers.user.UserRepository
 import jwt.auth.ktor.services.JwtService
 import org.slf4j.event.Level
 
@@ -60,10 +62,13 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         post("auth") {
-            //TODO read post, get user from DB
-
+            println(call.receive<AuthPayload>())
+            //get user from DB
             //TODO return token
-            call.respondText("token", contentType = ContentType.Text.Plain)
+            call.respondText(
+                JwtService.genToken(UserModel(id = "id", name = "name")),
+                contentType = ContentType.Text.Plain
+            )
         }
 
         //TODO remove this
