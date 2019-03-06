@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+interface State {}
+interface Props {}
 
-class App extends Component {
+class App extends Component<Props, State> {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="login box">
+          <div className="field">
+            <label className="label">Логин</label>
+            <div className="control">
+              <input className="input" type="text"/>
+            </div>
+          </div>
+          <div className="field">
+            <label className="label">Пароль</label>
+            <div className="control">
+              <input className="input" type="password"/>
+            </div>
+          </div>
+          <div className="field">
+            <a className="button is-medium is-fullwidth">Войти</a>
+          </div>
+        </div>
+
+
       </div>
     );
   }
